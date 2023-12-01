@@ -1,0 +1,41 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+{% load static %}
+<br><br>
+<style>
+    body{
+        background-image:url('{% static "images/product.jpg" %}');
+            background-size:cover;
+            background-repeat:no repeat;
+    }
+
+</style>
+<body> 
+<h1 style="color: aliceblue;"><center>Product Details</center></h1><br>
+<div class="container">
+    <table class="table" border="2px">
+        <tr style="color: wheat;">
+            <th>Product Name</th>
+            <th>Decsription</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+        {% for i in shw %}
+        <tr style="color: blanchedalmond;">
+            <td>{{i.productname}}</td>
+            <td>{{i.description}}</td>
+            <td>{{i.category}}</td>
+            <td>{{i.price}}</td>
+            <td><img src="{{i.image.url}}" width="70" alt=""> {{i.image}}</td>
+            <td><a href="{% url 'deletepage' i.id %}" class="btn btn-primary">Delete</a></td>
+            
+            
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+{% endblock %}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/fbe819dd43.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #664141;
+        }
+
+        .na {
+           
+            width: 200px;
+            height: 100vh; /* 100% of the viewport height */
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 20px; /* Adjust according to your design */
+        }
+
+        .na a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .na a:hover {
+            background-color: #664141;
+        }
+
+        .content {
+            margin-left: 200px; /* Width of the navbar */
+            padding: 16px;
+        }
+        .footer {
+            background-color: #ffffff;
+            padding: 20px 0;
+            z-index:1000;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer p {
+            margin-bottom: 0;
+        }
+
+        
+        a{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="na" style='height:100vh;'>
+        <a href="{% url 'adminhome' %}">Dashboard</a>
+        <a href="{% url 'add_category' %}">Add Category</a>
+        <a href="{% url 'add_product' %}">Add Product</a>
+        <a href="{% url 'show_product' %}">Show Product</a>
+        <a href="{% url 'show_user' %}">User Details</a>
+        <a href="{% url 'logoutt' %}">Logout</a>
+    </div>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          
+        {% block content %}
+        {% endblock %}
+    </main>
+    <br><br><br><br><br>
+
+    <div class="footer bg-dark">
+        <div class="container bg-dark">
+            <div class="row">
+               
+                <section style="width: 155%;">
+                    
+                    <div class="card-footer text-muted" >
+                        
+                      <footer class="container-fluid bg-dark text-center" style="padding: 1%;">
+                        <div class="col-md-12">
+                            <h5>Contact Us:</h5>
+                            <p>Email: shoppingmail@gmail.com</p>
+                            <p>Phone: 9874561230</p>
+                        </div>
+                       
+                        
+                    </footer> 
+                    </div>
+                  </section>
+            </div>
+        </div>
+        <!-- <div class="text-center mt-3">
+            <p>&copy; 2023 Your E-Commerce Project. All rights reserved.</p>
+        </div> -->
+    </div>
+</body>

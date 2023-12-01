@@ -1,0 +1,31 @@
+{% extends 'navbar1.html' %}
+{% block content %}
+{% load static %}
+<style>
+    body{
+      background-color: rgb(114, 104, 104);
+      
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+
+<table class="table" border="2px">
+    <tr>
+        <td>Image</td>
+        <td>productname</td>
+        <td>price</td>
+        <td>Action</td>
+    </tr>
+    {% for i in a %}
+    <tr>
+    
+        <th scope="row"><img src="{{i.product.image.url}}" width="100"></th>
+        <td>{{i.product.productname}}</td>
+        <td>{{i.product.price}}</td>
+        <td><a href="{% url 'deletepage2' i.id %}">Remove</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

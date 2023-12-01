@@ -1,0 +1,56 @@
+{% extends "navbar2.html" %}
+{% block content %}
+{% load static %}
+<head>
+    <style>
+        #cd{
+            background-color: rgba(0, 0, 0, 0.65);
+            padding: 20px;
+            border-radius: 5px;
+            font-size: larger;
+        }
+        body{
+            /* background-color: blueviolet; */
+            background-image:url('{% static "images/back3.png" %}');
+            background-size:cover;
+            background-repeat:no repeat; 
+            
+        }
+    </style>
+</head>
+<body> 
+    <br><br><br> 
+    <center>
+        <div class="container col-8" id="cd">
+            <h1 style='color:#bfe5f5;'>Add Product</h1>
+            <form action="{% url 'addprod' %}" method='post' enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputEmail1"></label>
+                    <input type="text" name="pname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add Product">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1"></label>
+                    <input type="textarea" name="des" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Description">
+                  </div>
+                <div class="form-group">
+                    <select name="category" class="form-control">
+                        {% for i in b  %}
+                        <option value="{{i.id}}">{{i.category}}</option>
+                        {% endfor %}
+                    </select>        
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"></label>
+                    <input type="number" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Price">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1"></label>
+                    <input style="font-size: larger;color: white;" class="btn" type="file" name="photo" id="im" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-50">Save</button> 
+            </form>
+        </div>
+    </center>
+</body>
+{% endblock %}

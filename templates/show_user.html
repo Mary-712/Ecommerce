@@ -1,0 +1,38 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+{% load static %}
+<br><br>
+<style>
+    body{
+        background-image:url('{% static "images/user.jpg" %}');
+            background-size:cover;
+            background-repeat:no repeat;
+    }
+
+ 
+</style>
+
+<body> 
+<h1 style="color: aliceblue;"><center>User Details</center></h1><br>
+<div class="container">
+    <table class="table" border="2px">
+        <tr style="color: azure;">
+            <th>Username</th>
+            <th>Address</th>
+            <th>Contact Number</th>
+            <th>Profile Photo</th> 
+            <th>Action</th>
+        </tr>
+        {% for i in s %}
+        <tr style="color: blanchedalmond; font-weight: bold;">
+            <td>{{i.user.username}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.contactnumber}}</td>
+            <td><img src="{{i.image.url}}" width="70" alt=""> {{i.image}}</td>
+            <td><a href="{% url 'deletepage1' i.id %}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+{% endblock %}
